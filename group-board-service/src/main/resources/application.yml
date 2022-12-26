@@ -1,0 +1,60 @@
+# Spring Setting
+spring:
+
+  # App Name
+  application:
+    name: group-board-service
+
+  ## Spring Security
+  security:
+    user:
+      name: user
+      password: 1234
+    oauth2:
+      resourceserver:
+
+  ## MySQL
+#  datasource:
+#    url: jdbc:mysql://127.0.0.1:3306/groupdb?characterEncoding=utf-8
+#    username: springetc
+#    password: springetc12#
+
+  datasource:
+    url: jdbc:mysql://192.168.199.128:3306/groupservicedb?characterEncoding=utf-8
+    username: mydb
+    password: 1234
+
+  # JPA
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: false
+    open-in-view: false
+    database: MYSQL
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+# JWT
+jwt:
+  secret:
+    key: abcd1234abcd1234
+  token:
+    access:
+      valid:
+        time: 300
+      name: jwtAccessToken
+    refresh:
+      valid:
+        time: 3000
+      name: jwtRefreshToken
+    creator: ohjuhyeon
+
+# Logging
+logging:
+  level:
+    org.springframework: info
